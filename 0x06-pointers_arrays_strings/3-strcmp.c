@@ -1,27 +1,20 @@
 include "main.h"
 /**
- * _strncpy - copies a string
- * @dest: A pointer to a character that will be changed
- * @src: A pointer to a character that will be changed
- * @n: value
+ * _strcmp - compares two strings
+ *  @s1: A pointer to a character that will be changed
+ * @s2: A pointer to a character that will also be changed/modified/updated
  * Return: dest
  */
-char *_strncpy(char *dest, char *src, int n)
+int _strcmp(char *s1, char *s2)
 
 {
-	int i;
+	char *str_one = s1;
+	char *str_two = s2;
 
-	i = 0;
-	while (i < n && src[i] != '\0')
+	while (*str_one != '\0' && *str_two != '\0' && *str_one == *str_two)
 	{
-		dest[i] = src[i];
-		i++;
+			str_one++;
+			str_two++;
 	}
-
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (*str_one - *str_two);
 }
